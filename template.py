@@ -34,8 +34,16 @@ def main(sc):
 
 
 if __name__ == "__main__":
-# Configure Spark
+    # Configure Spark
     conf=SparkConf().setAppName(APP_NAME)
     sc=SparkContext(conf=conf)
     # Execute Main functionality
+    import time
+    start=time.time()
+    print "The {app} is started!".format(app=APP_NAME)
+    print "..."
     main(sc)
+    end=time.time()
+    costTime=end-start
+    print "The job is finished!"
+    print "Cost time: {:.2f}s".format(costTime)
